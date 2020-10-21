@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //MONGOOSE CONNECTION
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/pizza-parlour", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/my-fitness-lens", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useCreateIndex: true,
@@ -26,12 +26,11 @@ connection.on("connected", () => {
 	console.log("Mongoose successfully connected");
 });
 
-//////////////////////////update variable name and path with model name
-const modelnameController = require("./controllers/modelname");
-const modelnameController = require("./controllers/modelname");
+const workoutController = require("./controllers/workoutController.js");
+const exerciseController = require("./controllers/exerciseController.js");
 
-app.use(ingredientsController);
-app.use(pizzaController);
+app.use(workoutController);
+app.use(exerciseController);
 
 //ROUTES
 app.get("/api/config", (req, res) => {
