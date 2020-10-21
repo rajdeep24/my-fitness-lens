@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //MONGOOSE CONNECTION
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/my-fitness-lens", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useCreateIndex: true,
@@ -26,13 +26,10 @@ connection.on("connected", () => {
 	console.log("Mongoose successfully connected");
 });
 
-const workoutController = require("./controllers/workoutController.js");
-const exerciseController = require("./controllers/exerciseController.js");
-
-app.use(workoutController);
-app.use(exerciseController);
-
 //ROUTES
+require("./routes/html-routes.js")(app);
+require("./routes/workout-routes.js")(app);
+
 app.get("/api/config", (req, res) => {
 	res.json({
 		success: true,
