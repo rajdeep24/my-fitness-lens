@@ -1,5 +1,5 @@
 const db = require("../models");
-
+const path = require("path");
 //   * Add exercises to a previous workout plan.
 
 //   * Add new exercises to a new workout plan.
@@ -19,22 +19,6 @@ module.exports = function (app) {
 					error: true,
 					data: null,
 					message: "Failed to retrieve workouts.",
-				});
-			});
-	});
-
-	//The following get route returns a workout by id
-	app.get("/api/workouts/:id", function (req, res) {
-		db.Workout.findById(req.params.id)
-			.then((foundWorkouts) => {
-				res.json(foundWorkouts);
-			})
-			.catch((err) => {
-				console.log(err);
-				res.json({
-					error: true,
-					data: null,
-					message: "Failed to retrieve workout by id.",
 				});
 			});
 	});
