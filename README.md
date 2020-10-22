@@ -30,7 +30,7 @@ My-Fitness-Lens can be accessed at heroku link provided below:
 
 Heroku Pages URL: <https://my-fitness-lens.herokuapp.com/>
 
-Github Repository: <https://github.com/rajdeep24/NoteTaker>
+Github Repository: <https://github.com/rajdeep24/my-fitness-lens>
 
 ### Screenshots
 
